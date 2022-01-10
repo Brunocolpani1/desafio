@@ -1,0 +1,64 @@
+const express = require('express');
+const router = express.Router();
+const Finance  = require('../models/finances');
+const bodyParser = require('body-parser');
+const moment = require('moment')
+
+router.use(bodyParser.json());
+router.use(bodyParser.urlencoded({extended: true}));
+
+router.get('/', async (req, res) => {
+  try{
+    const finances = await Finance.findAll();
+    res.status(200).json(finances);
+  } catch(err){
+    res.status(404).json('Não existe nenhum lançamento!');
+  }
+  })
+
+  router.get('/:id', async (req, res) => {
+    try{
+      const finance = await Finance.findByPk(req.params.id);
+      res.status(200).json(finance)
+    } catch{
+      res.status(400).json('Não existe o lançamento informado!')
+    }
+  })
+
+  router.post('/',
+    async (req, res) => {
+      const {value, note, person} = req.body
+      try{
+        await Finance.create({
+          value,
+          note,
+          person,
+        })
+        res.status(201).json('Saldo cadastrado com sucesso!')
+      } catch{
+        res.status(400).json('Não foi possivel cadastrar o lançamento!!')
+      }
+  })
+
+  router.put('/:id', async (req, res) => {
+    const finance = await finance.findByPk(req.params.id);
+    try{
+      const {value, note, date, person} = req.body;
+      await Finance.save(value, note, date, person);
+      res.status(200).json('Usuario atualziado com sucesso!');
+    } catch{
+      res.status(404).send('Usuario não existe!');
+    } 
+  })
+
+  router.delete('/:id', async (req, res) => {
+    const finance = await Finance.findByPk(req.params.id);
+    try{
+      finance.destroy();
+      res.status(200).json('Saldo excluido com sucesso');
+    } catch(err){
+      res.status(404).json('Não existe nenhum lançamento!');
+    }
+  })
+  
+  module.exports = router;
