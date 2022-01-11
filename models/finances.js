@@ -3,7 +3,7 @@ const database = require('../config/db')
 
 const Finance = database.define('finances', {
     id: {
-        type: Sequelize.UUID,
+        type: Sequelize.UUIDV4,
         defaultValue: Sequelize.UUIDV4(),
         primaryKey: true,
         unique: true
@@ -16,7 +16,7 @@ const Finance = database.define('finances', {
         allowNull: false,
     },
     date: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATEONLY,
     },
     note: {
         type: Sequelize.STRING(255),

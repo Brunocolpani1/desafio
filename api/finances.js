@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const Finance  = require('../models/finances');
 const bodyParser = require('body-parser');
-const moment = require('moment')
+const dateBrasil = require('../services/dateBr')
+const codigo = require('../services/code')
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({extended: true}));
@@ -27,12 +28,14 @@ router.get('/', async (req, res) => {
 
   router.post('/',
     async (req, res) => {
-      const {value, note, person} = req.body
+      const {value, note, person, date = dateBrasil, code} = req.body
       try{
         await Finance.create({
           value,
           note,
           person,
+          date,
+          code
         })
         res.status(201).json('Saldo cadastrado com sucesso!')
       } catch{
@@ -41,13 +44,12 @@ router.get('/', async (req, res) => {
   })
 
   router.put('/:id', async (req, res) => {
-    const finance = await finance.findByPk(req.params.id);
+    const {value, note, person, date} = req.body
     try{
-      const {value, note, date, person} = req.body;
-      await Finance.save(value, note, date, person);
-      res.status(200).json('Usuario atualziado com sucesso!');
+      await Finance.create({ value, note, date, person });
+      res.status(200).json('Lançamento atualziado com sucesso!');
     } catch{
-      res.status(404).send('Usuario não existe!');
+      res.status(404).send('Lançamento não existe!');
     } 
   })
 
