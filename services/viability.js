@@ -19,11 +19,10 @@ function aplicacao(startCapital, interestRate, applicationTime ){
 }
 
 function viability(value){
-    const totalValue = value;
-    if(totalValue / 2 >= 30000){
+    if(value / 2 >= 30000){
       return goCancun = true;
     }
-    return viability
+    return false;
   }
 
 

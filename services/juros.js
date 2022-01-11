@@ -4,8 +4,8 @@ const {days, getObject, getObject2,getValue,forInt, fees} = require('./viability
 
 const regra = new schedule.RecurrenceRule()
 regra.dayOfWeek = [new schedule.Range(1, 7)]
-regra.hour = 13
-regra.minute = 54
+regra.hour = 00
+regra.minute = 00
 
 const tarefa = schedule.scheduleJob(regra, async function(){
     const finance = await Finance.findAll({
