@@ -44,9 +44,13 @@ router.get('/', async (req, res) => {
   })
 
   router.put('/:id', async (req, res) => {
-    const {value, note, person, date} = req.body
+    const finance = await Finance.findByPk(req.params.id);
+    finance.value = req.body.value,
+    finance.note = req.body.note,
+    finance.person = req.body.person,
+    finance.date = req.body.date
     try{
-      await Finance.create({ value, note, date, person });
+      await finance.save();
       res.status(200).json('Lançamento atualziado com sucesso!');
     } catch{
       res.status(404).send('Lançamento não existe!');
