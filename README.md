@@ -1,6 +1,6 @@
 # Desafio Técnico Back-end
 
-> Status: Desenvolvido
+> Status: Desenvolvido ✅
 
 ### Essa é uma API criada para o controle financeiro viabilizando uma viagem entre amigos para Cancun em 01/03/2023. Na aplicação é possível fazer o CRUD de usuário e deposito.
 ## Alguns campos no modelo finance são:
@@ -21,7 +21,7 @@
 
 + Visualizar todo o valor guardado na conta em tempo real no formato BLR.
 + Viabilidade da viagem acontecer fazendo os cálculos de juros composto até a data da viagem, se o valor arrecada divido pelo número de participantes for igual a R$ 30.000,00, o retorno vai ser TRUE, caso contrário vai ser FALSE.
-+ todos os dias são recebidos a taxa de juros em cada operação às 00:00.
++ Todos os dias são recebidos a taxa de juros em cada operação às 00:00.
 
 ## Tecnologias utilizadas:
 
