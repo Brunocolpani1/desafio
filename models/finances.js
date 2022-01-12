@@ -9,7 +9,7 @@ const Finance = database.define('finances', {
         unique: true
     },
     code: {
-        type: Sequelize.STRING()
+        type: Sequelize.UUID
     },
     value: {
         type: Sequelize.DECIMAL,

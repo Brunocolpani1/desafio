@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Finance  = require('../models/finances');
 const bodyParser = require('body-parser');
-const dateBrasil = require('../services/dateBr')
+const dateBrasil = require('../services/date')
 
 
 router.use(bodyParser.json());

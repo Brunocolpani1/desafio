@@ -1,0 +1,201 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Let's go to Spring Break",
+    "description": "Essa é uma API criada para o controle financeiro viabilizando uma viagem entre amigos para Cancun em 01/03/2023. Na aplicação é possível fazer o CRUD de usuário e deposito..",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/",
+      "description": "API de teste."
+    }
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "summary": "Retorna a lista de usuarios.",
+        "description": "Essa rota será responsável por mostrar todos os usuários.",
+        "tags": ["Users"],
+        "responses": {
+          "200": {
+            "description": "Um array de JSON com id e name dos usuarios",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Sem usuarios cadastrados"
+          }
+        }
+      },
+      "post": {
+        "summary": "Cadastro usuarios.",
+        "description": "Essa rota será responsável por cadastrar os usuários.",
+        "tags": ["Users"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Um array de JSON com id e name do usuario gerado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                },
+                "examples": {
+                  "user": {
+                    "value": {
+                      "id": "482fab67-82c8-429e-8521-ba18215cc010",
+                      "name": "Joãozinho"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Sem usuarios cadastrados"
+          }
+        }
+      }
+    },
+    "/users/{id}": {
+      "get": {
+        "summary": "Retorna usuario por id.",
+        "description": "Essa rota será responsável por mostrar o usuario pela id.",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do usuario para busca.",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Usuario não existe"
+          }
+        }
+      },
+      "put": {
+        "summary": "Alterar usuario por id.",
+        "description": "Essa rota será responsável por alterar o usuario pela id.",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do usuario para alteração.",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              },
+              "examples": {
+                "user": {
+                  "value": {
+                    "name": "João"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Usuario não existe"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Excluir usuario por id.",
+        "description": "Essa rota será responsável por excluir o usuario pela id.",
+        "tags": ["Users"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id do usuario para excluir.",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/User"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Usuario não existe"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

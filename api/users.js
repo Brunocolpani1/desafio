@@ -36,9 +36,12 @@ router.get('/', async (req, res) => {
   })
 
   router.put('/:id', async (req, res) => {
-    const user = await User.findByPk(req.params.id) 
+    const {id} = await User.findByPk(req.params.id) 
+    const {name} = req.body; 
+
+    const user = users.findIndex((users) => users.id == id)
     try{
-      user.name = req.body.name;    
+      await User.assign({name})   
       res.status(200).json('Usuario atualziado com sucesso!');
     } catch{
       res.status(404).send('Usuario não existe!');
