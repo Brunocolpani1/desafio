@@ -44,7 +44,7 @@
                 "$ref": "#/components/schemas/User"
               },
               "examples": {
-                "user":{
+                "user": {
                   "value": {
                     "name": "Joãozinho"
                   }
@@ -191,12 +191,12 @@
     },
     "/finances": {
       "get": {
-        "summary": "Retorna a lista de usuarios.",
-        "description": "Essa rota será responsável por mostrar todos os usuários.",
+        "summary": "Retorna a lista de lançamentos.",
+        "description": "Essa rota será responsável por mostrar todos os lançamentos.",
         "tags": ["finances"],
         "responses": {
           "200": {
-            "description": "Um array de JSON com id e name dos usuarios",
+            "description": "Um array de JSON com id e name dos lançamentos",
             "content": {
               "application/json": {
                 "schema": {
@@ -206,13 +206,13 @@
             }
           },
           "400": {
-            "description": "Sem usuarios cadastrados"
+            "description": "Sem lançamentos cadastrados"
           }
         }
       },
       "post": {
-        "summary": "Cadastro usuarios.",
-        "description": "Essa rota será responsável por cadastrar os usuários.",
+        "summary": "Cadastro lançamentos.",
+        "description": "Essa rota será responsável por cadastrar os lançamentos.",
         "tags": ["finances"],
         "requestBody": {
           "content": {
@@ -235,7 +235,7 @@
         },
         "responses": {
           "200": {
-            "description": "Um array de JSON com id e name do usuario gerado",
+            "description": "Um array de JSON com id e name do lançamento gerado",
             "content": {
               "application/json": {
                 "schema": {
@@ -257,21 +257,21 @@
             }
           },
           "400": {
-            "description": "Sem usuarios cadastrados"
+            "description": "Sem lançamento cadastrados"
           }
         }
       }
     },
     "/finances/{id}": {
       "get": {
-        "summary": "Retorna usuario por id.",
-        "description": "Essa rota será responsável por mostrar o usuario pela id.",
+        "summary": "Retorna lançamentos por id.",
+        "description": "Essa rota será responsável por mostrar o lançamento pela id.",
         "tags": ["finances"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Id do usuario para busca.",
+            "description": "Id do lançamento para busca.",
             "required": true
           }
         ],
@@ -287,19 +287,19 @@
             }
           },
           "400": {
-            "description": "Usuario não existe"
+            "description": "Lançamento não existe"
           }
         }
       },
       "put": {
-        "summary": "Alterar usuario por id.",
-        "description": "Essa rota será responsável por alterar o usuario pela id.",
+        "summary": "Alterar lançamentos por id.",
+        "description": "Essa rota será responsável por alterar o lançamento pela id.",
         "tags": ["finances"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Id do usuario para alteração.",
+            "description": "Id do lançamento para alteração.",
             "required": true
           }
         ],
@@ -331,19 +331,19 @@
             }
           },
           "400": {
-            "description": "Usuario não existe"
+            "description": "Lançamento não existe"
           }
         }
       },
       "delete": {
-        "summary": "Excluir usuario por id.",
-        "description": "Essa rota será responsável por excluir o usuario pela id.",
+        "summary": "Excluir lançamentos por id.",
+        "description": "Essa rota será responsável por excluir o lançamento pela id.",
         "tags": ["finances"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "Id do usuario para excluir.",
+            "description": "Id do lançamento para excluir.",
             "required": true
           }
         ],
@@ -368,7 +368,59 @@
             }
           },
           "400": {
-            "description": "Usuario não existe"
+            "description": "Lançamento não existe"
+          }
+        }
+      }
+    },
+    "/currentMoney": {
+      "get": {
+        "summary": "Retorna o valor total depositado.",
+        "description": "Essa rota será responsável por mostrar o valor total de todos os lançamentos.",
+        "tags": ["How much do we have"],
+        "responses": {
+          "200": {
+            "description": "Valor total depositado em formato BRL",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "currentMoney": {
+                    "value": {
+                      "value": "R$ 5500.00"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Sem lançamentos cadastrados"
+          }
+        }
+      }
+    },
+    "/goingCancun": {
+      "get": {
+        "summary": "Retorna valor booleano true ou false.",
+        "description": "Essa rota será responsável por mostrar o valor total de todos os lançamentos somado com juros sobre juros até 01/03/2023 e se será possivel fazer a viagem.",
+        "tags": ["Are we going to Spring Break"],
+        "responses": {
+          "200": {
+            "description": "Valor total depositado somado com juros sobre juros",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "goCancun": {
+                    "value": {
+                      "value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Sem lançamentos cadastrados"
           }
         }
       }

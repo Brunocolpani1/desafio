@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('../config/db')
+const moment = require('moment')
+const getCode = require('../services/code')
 
 const Finance = database.define('finances', {
     id: {
@@ -9,7 +11,10 @@ const Finance = database.define('finances', {
         unique: true
     },
     code: {
-        type: Sequelize.UUID,
+        type: Sequelize.STRING,
+        get: function () {
+            return (this.getDataValue('id'))
+        }
     },
     value: {
         type: Sequelize.DECIMAL,
@@ -17,17 +22,20 @@ const Finance = database.define('finances', {
         validate: {
             notEmpty: {
                 msg: "Esse campo não pode ser vazio"
-            },
-            isDecimal: true
+            }
         }
     },
     date: {
         type: Sequelize.DATEONLY,
+        allowNull: false,
+        get: function () {
+            return moment(this.getDataValue('date')).format('MM DD YYYY')
+        },
         validate: {
             notEmpty: {
                 msg: "Esse campo não pode ser vazio"
             },
-            isDate: true,
+            isDate: true
         }
     },
     note: {
