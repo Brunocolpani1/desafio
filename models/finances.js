@@ -14,9 +14,21 @@ const Finance = database.define('finances', {
     value: {
         type: Sequelize.DECIMAL,
         allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            },
+            isDecimal: true
+        }
     },
     date: {
         type: Sequelize.DATEONLY,
+        validate: {
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            },
+            isDate: true,
+        }
     },
     note: {
         type: Sequelize.STRING(255),
@@ -25,10 +37,15 @@ const Finance = database.define('finances', {
     person: {
         type: Sequelize.UUID,
         allowNull: false,
-        references: {model: 'users', key: 'id'},
+        references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
+        validate: {
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            }
+        }
     }
 })
 
-module.exports = Finance
+module.exports = Finance;

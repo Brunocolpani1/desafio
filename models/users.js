@@ -10,8 +10,13 @@ const User = database.define('users', {
     },
     name: {
         type: Sequelize.STRING(80),
-        allowNull: false
+        allowNull: false,
+        validate: {
+            notEmpty: {
+                msg: "Esse campo não pode ser vazio"
+            }
+        }
     }
 })
 
-module.exports = User
+module.exports = User;
