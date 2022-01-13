@@ -3,7 +3,7 @@ const router = express.Router();
 const Finance = require('../models/finances');
 const bodyParser = require('body-parser');
 const { viability, aplicacao, fees } = require('../services/viability');
-const { days } = require('../services/date')
+const { days } = require('../services/date');
 const { totalValue } = require('../services/totalValue');
 
 router.use(bodyParser.json());

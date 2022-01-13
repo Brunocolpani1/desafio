@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Finance = require('../models/finances');
 const bodyParser = require('body-parser');
-const { dateBrasil } = require('../services/date')
-
 
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
@@ -20,25 +18,25 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const finance = await Finance.findByPk(req.params.id);
-    res.status(200).json(finance)
+    res.status(200).json(finance);
   } catch {
-    res.status(400).json('Não existe o lançamento informado!')
+    res.status(400).json('Não existe o lançamento informado!');
   }
 })
 
 router.post('/',
   async (req, res) => {
-    const { value, note, person, date} = req.body
+    const { value, note, person, date} = req.body;
     try {
       await Finance.create({
         value,
         note,
         person,
         date
-      })
-      res.status(201).json('Saldo cadastrado com sucesso!')
+      });
+      res.status(201).json('Saldo cadastrado com sucesso!');
     } catch {
-      res.status(400).json('Não foi possivel cadastrar o lançamento!!')
+      res.status(400).json('Não foi possivel cadastrar o lançamento!!');
     }
   })
 

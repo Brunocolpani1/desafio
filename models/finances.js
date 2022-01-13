@@ -12,9 +12,17 @@ const Finance = database.define('finances', {
     },
     code: {
         type: Sequelize.STRING,
-        get: function () {
-            return (this.getDataValue('id'))
+        get() {
+            const id = this.getDataValue('id').split('-')
+            const code = id[0].toString().toUpperCase().save({ code })
+            return code
+        },
+        set(value) {
+            const valor = this.code
+            console.log(`Aqui o valor ${valor}`);
+            this.setDataValue('code', thi);
         }
+
     },
     value: {
         type: Sequelize.DECIMAL,

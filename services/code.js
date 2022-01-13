@@ -5,7 +5,6 @@ function getCode(id){
   return id.map(forInt).map(one).toString().toUpperCase()
 }
 
-console.log(getCode(id));
 
 
 module.exports = getCode;

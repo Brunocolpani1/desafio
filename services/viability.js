@@ -1,9 +1,9 @@
-const getObject = json => JSON.stringify(json)
-const getObject2 = json => JSON.parse(json) 
-const getValue = value => value.value
-const getId = id => id.id
-const forInt = i => i.split(',')
-const juros = i => (i + 0.01) + 1
+const getObject = json => JSON.stringify(json);
+const getObject2 = json => JSON.parse(json);
+const getValue = value => value.value;
+const getId = id => id.id;
+const forInt = i => i.split(',');
+const juros = i => (i + 0.01) + 1;
 
 const fees = 0.01;
 
@@ -14,12 +14,12 @@ const fees = 0.01;
  * @param {number} interestRate - Valor do juros.
  * @param {number} applicationTime - Os dias que faltam para a data 01/03/2023.
  */
-function aplicacao(startCapital, interestRate, applicationTime ){
-    applied = (startCapital + interestRate) + applicationTime;
-        function compoundInterest (applicationTime){
-             let compoundinterest  = this.applied * applicationTime;                
-         }
-    return compoundInterest
+function aplicacao(startCapital, interestRate, applicationTime) {
+  applied = (startCapital + interestRate) + applicationTime;
+  function compoundInterest(applicationTime) {
+    let compoundinterest = this.applied * applicationTime;
+  }
+  return compoundInterest;
 }
 
 /**
@@ -28,12 +28,12 @@ function aplicacao(startCapital, interestRate, applicationTime ){
  * @param {number} value - Valor de juros compsoto até a data do dia 01/03/2023.
  */
 
-function viability(value){
+function viability(value) {
   console.log(value);
-    if(value / 2 >= 30000){
-      return goCancun = true;
-    }
-    return goCancun = false;
+  if (value / 2 >= 30000) {
+    return goCancun = true;
   }
+  return goCancun = false;
+}
 
-module.exports = { getObject, getObject2,getValue,forInt, aplicacao, viability, fees, juros, getId };
+module.exports = { getObject, getObject2, getValue, forInt, aplicacao, viability, fees, juros, getId };
