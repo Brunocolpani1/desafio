@@ -1,4 +1,4 @@
-const { getObject, getObject2, getValue, forInt } = require('./viability');
+const { getObject, getObject2, getValue, forInt, fees } = require('./viability');
 
 /**
  * Representa o valor total de depositos.
@@ -16,9 +16,9 @@ const totalValue = (finance) => {
  * @constructor
  * @param {number} finance - Valores depostidados por todos os usuarios
  */
+ const juros = i => ( i * fees) + i
 const arrayJuros = (finance) => {
-  return finance.map(getObject).map(getObject2).map(getValue).map(forInt).map(parseFloat).map(juros);
+  return finance.map(getObject).map(getObject2).map(getValue).map(forInt).map(parseFloat).map(juros)
 };
-
 
 module.exports = { totalValue, arrayJuros };

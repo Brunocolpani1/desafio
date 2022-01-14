@@ -10,7 +10,7 @@
 + value
 + note
 + date
-+ person (user_id
++ person (user_id)
 
 ## Também tem o user com os campos:
 
@@ -19,9 +19,9 @@
 
 ## Além do CRUD, também foi adicionado outras funcionalidades:
 
-+ Visualizar todo o valor guardado na conta em tempo real no formato BLR.
-+ Viabilidade da viagem acontecer fazendo os cálculos de juros composto até a data da viagem, se o valor arrecada divido pelo número de participantes for igual a R$ 30.000,00, o retorno vai ser TRUE, caso contrário vai ser FALSE.
-+ Todos os dias são recebidos a taxa de juros em cada operação às 00:00.
++ Visualizar todo o valor depositado na conta em tempo real no formato BLR.
++ Viabilidade da viagem acontecer fazendo os cálculos de juros composto até a data da viagem, se o valor arrecada divido pelo número de participantes for igual a R$ 30.000,00 por cada pessoa, o retorno vai ser TRUE, caso contrário vai ser FALSE.
++ Todos os dias são creditados a taxa de juros em cada operação às 00:00.
 
 ## Tecnologias utilizadas:
 
@@ -29,8 +29,9 @@
 + Node.js
 + Express
 + PostgresSQL
-
 ## Como executar o aplicativo:
+
+
 + No dbeaver, crie um usuário ```postgres```, senha ```123mudar``` e um banco ```postgres```
 + Instale as dependências do projeto com npm install
 + inicie o projeto com npm start

@@ -26,13 +26,14 @@ router.get('/:id', async (req, res) => {
 
 router.post('/',
   async (req, res) => {
-    const { value, note, person, date} = req.body;
+    const { value, note, person, date, code} = req.body;
     try {
       await Finance.create({
         value,
         note,
         person,
-        date
+        date,
+        code
       });
       res.status(201).json('Saldo cadastrado com sucesso!');
     } catch {

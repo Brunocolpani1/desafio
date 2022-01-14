@@ -3,7 +3,7 @@ const getObject2 = json => JSON.parse(json);
 const getValue = value => value.value;
 const getId = id => id.id;
 const forInt = i => i.split(',');
-const juros = i => (i + 0.01) + 1;
+const juros = i => (i * 0.01) + i;
 
 const fees = 0.01;
 

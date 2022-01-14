@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('../config/db')
 const moment = require('moment')
-const getCode = require('../services/code')
+
 
 const Finance = database.define('finances', {
     id: {
@@ -12,17 +12,12 @@ const Finance = database.define('finances', {
     },
     code: {
         type: Sequelize.STRING,
+        defaultValue: this.code,
         get() {
             const id = this.getDataValue('id').split('-')
-            const code = id[0].toString().toUpperCase().save({ code })
+            const code = id[0].toString().toUpperCase()
             return code
-        },
-        set(value) {
-            const valor = this.code
-            console.log(`Aqui o valor ${valor}`);
-            this.setDataValue('code', thi);
         }
-
     },
     value: {
         type: Sequelize.DECIMAL,

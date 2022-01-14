@@ -1,25 +1,26 @@
 {
   "name": "desafio-crud",
   "version": "1.0.0",
-  "description": "",
+  "description": "Essa é uma API criada para o controle financeiro viabilizando uma viagem entre amigos para Cancun em 01/03/2023. Na aplicação é possível fazer o CRUD de usuário e deposito.",
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bruno Colpani",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.1",
     "dotenv": "^11.0.0",
     "express": "^4.17.2",
-    "node-schedule": "^2.1.0",
+    "node-cron": "^3.0.0",
     "pg": "^8.7.1",
     "sequelize": "^6.12.5",
     "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
+    "mocha": "^9.1.3",
     "nodemon": "^2.0.15"
   }
 }
