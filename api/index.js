@@ -20,5 +20,6 @@ router.use('/users', usersRouter);
 router.use('/finances', financesRouter);
 router.use('/currentMoney', currentRouter);
 router.use('/goingCancun', goingRouter);
+router.use('/juros', jurosRouter);
 
 module.exports = router;
