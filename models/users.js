@@ -3,7 +3,7 @@ const database = require('../config/db');
 
 const User = database.define('users', {
     id: {
-        type: Sequelize.UUIDV4,
+        type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4(),
         primaryKey: true,
         unique: true

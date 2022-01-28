@@ -16,7 +16,7 @@ const totalValue = (finance) => {
  * @constructor
  * @param {number} finance - Valores depostidados por todos os usuarios
  */
- const juros = i => ( i * fees) + i
+const juros = i => (i * fees) + i
 const arrayJuros = (finance) => {
   return finance.map(getObject).map(getObject2).map(getValue).map(forInt).map(parseFloat).map(juros)
 };

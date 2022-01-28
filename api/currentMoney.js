@@ -14,6 +14,7 @@ router.get('/', async (req, res) => {
     attributes: ['value']
   });
 
+  //Retorna o valor total depositado no formato BRL ( R$ )
   const value = totalValue(finance).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
   res.status(200).json(value);
 })

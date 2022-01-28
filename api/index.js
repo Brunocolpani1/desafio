@@ -2,11 +2,12 @@ const express = require('express');
 
 const usersRouter = require('./users');
 const financesRouter = require('./finances');
+const jurosRouter = require('./juros');
 const currentRouter = require('./currentMoney');
 const goingRouter = require('./goingCancun');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('../swagger');
-const juros = require('./juros')
+
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -19,6 +20,5 @@ router.use('/users', usersRouter);
 router.use('/finances', financesRouter);
 router.use('/currentMoney', currentRouter);
 router.use('/goingCancun', goingRouter);
-router.use('/juros', juros);
 
 module.exports = router;

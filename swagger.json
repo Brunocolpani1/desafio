@@ -32,7 +32,9 @@
             "description": "Sem usuarios cadastrados"
           }
         }
-      },
+      }
+    },
+    "/users/create": {
       "post": {
         "summary": "Cadastro usuarios.",
         "description": "Essa rota será responsável por cadastrar os usuários.",
@@ -209,7 +211,9 @@
             "description": "Sem lançamentos cadastrados"
           }
         }
-      },
+      }
+    },
+    "/finances/create": {
       "post": {
         "summary": "Cadastro lançamentos.",
         "description": "Essa rota será responsável por cadastrar os lançamentos.",
