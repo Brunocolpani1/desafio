@@ -32,6 +32,6 @@
 ## Como executar o aplicativo:
 
 
-+ No dbeaver, crie um usuário ```postgres```, senha ```123mudar``` e um banco ```postgres```
++ No dbeaver, crie um usuário ```postgres```, senha ```suaSenha``` e um banco ```postgres```
 + Instale as dependências do projeto com npm install
 + inicie o projeto com npm start
